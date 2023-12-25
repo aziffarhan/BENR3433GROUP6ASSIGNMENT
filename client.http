@@ -1,0 +1,356 @@
+### Register Admin #1 ###
+POST http://localhost:1947/register
+Content-Type: application/json
+
+{
+  "username": "aziffarhan",
+  "password": "ayamguring",
+  "name": "Azif Farhan",
+  "email": "b022110210@student.utem.com.my"
+}
+
+### Register Admin #2 ###
+POST http://localhost:1947/register
+Content-Type: application/json
+
+{
+  "username": "alifhaikal",
+  "password": "keropoklekor",
+  "name": "Alif Haikal",
+  "email": "b022110176@student.utem.com.my"
+}
+
+### Register Admin #3 ###
+POST http://localhost:1947/register
+Content-Type: application/json
+
+{
+  "username": "syamaail",
+  "password": "biskutlutut",
+  "name": "Muhamad Syamaail",
+  "email": "b022110033@student.utem.com.my"
+}
+
+### Register Admin #4 ###
+POST http://localhost:1947/register
+Content-Type: application/json
+
+{
+  "username": "alifamsyar",
+  "password": "sataykambing",
+  "name": "Alif Amsyar",
+  "email": "b022110081@student.utem.com.my"
+}
+
+### Register Admin #5 ###
+POST http://localhost:1947/register
+Content-Type: application/json
+
+{
+  "username": "aizatzuhair",
+  "password": "ikanbakar",
+  "name": "Aizat Zuhair",
+  "email": "b022110188@student.utem.com.my"
+}
+
+### Login aziffarhan ###
+POST http://localhost:1947/login
+Content-Type: application/json
+
+{
+  "username": "aziffarhan",
+  "password": "ayamguring"
+}
+
+### Login alifhaikal ###
+POST http://localhost:1947/login
+Content-Type: application/json
+
+{
+  "username": "alifhaikal",
+  "password": "keropoklekor"
+}
+
+### Login syamaail ###
+POST http://localhost:1947/login
+Content-Type: application/json
+
+{
+  "username": "syamaail",
+  "password": "biskutlutut"
+}
+
+### Login alifamsyar ###
+POST http://localhost:1947/login
+Content-Type: application/json
+
+{
+  "username": "alifamsyar",
+  "password": "sataykambing"
+}
+
+### Login aizatzuhair ###
+POST http://localhost:1947/login
+Content-Type: application/json
+
+{
+  "username": "aizatzuhair",
+  "password": "ikanbakar"
+}
+
+### Create Visitor Registration ###
+POST http://localhost:1947/visitorsRegistration
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMWFmYzc5ZTJlOTJiYTZlZWY3NTEiLCJ1c2VybmFtZSI6ImF6aWZmYXJoYW4iLCJwYXNzd29yZCI6ImF5YW1ndXJpbmciLCJuYW1lIjoiQXppZiBGYXJoYW4iLCJlbWFpbCI6ImIwMjIxMTAyMTBAc3R1ZGVudC51dGVtLmNvbS5teSIsImlhdCI6MTY4ODIxNDYxOSwiZXhwIjoxNjg4MjE4MjE5fQ.ViahwlPlt6sJBjxBJdbUn-dc_8BJvCeM0Fn6N9Nv9q0
+
+{
+  "visitorInfo":{
+    "Identification No": "001017101313",
+    "Visitor Name": "AZIF FARHAN",
+    "Gender": "MALE",
+    "Temperature": 37,
+    "Ethnicity": "MALAY",
+    "Date of Birth": "2000-10-17",
+    "Citizenship": "MALAYSIAN",
+    "Document Type": "IC",
+    "Expiry Date": "NONE",
+    "License Number": "59745433"
+  },
+  "visitorAddress":{
+    "Address": "DT2240, JALAN BUKIT TAMBUN PERDANA, TAMAN BUKIT TAMBUN PERDANA",
+    "Town": "DURIAN TUNGGAL",
+    "Postcode": 76100,
+    "State": "MELAKA",
+    "Country": "MALAYSIA"
+  },
+  "otherDetails":{
+    "Telephone Number": 601128559860,
+    "Vehicle Number": "WVH1235",
+    "Vehicle Type": "MOTORCYCLE",
+    "Visitor Category": "GUEST",
+    "Company": "NONE",
+    "Pass Number": "NONE"
+  },
+  "visitDetails":{
+    "No of Visitors": 1,
+    "Purpose": "VISITING",
+    "Visit Limit Hours": 11,
+    "Visit Limit Minutes": 59,
+    "Host": "ALIF HAIKAL",
+    "Location/Department": "A-2",
+    "Unit No": 47,
+    "Permit No": "NONE",
+    "Delivery Order": "NONE",
+    "Remarks": "NONE"
+  },
+  "addInfo":{
+    "Fever": false,
+    "Sore Throat": false,
+    "Dry Cough": false,
+    "Runny Nose": false,
+    "Shortness of Breath": false,
+    "Body Ache": false,
+    "Travelled Overseas Last (14 days)": false,
+    "Contact With Person With Covid-19": false,
+    "Recovered From Covid-19": false,
+    "Covid-19 Test Done": false
+  },
+  "blacklistStatus":{
+    "Blacklist": false,
+    "Blacklist Remarks": "NONE"
+  }
+}
+
+### Create Visitor Registration ###
+POST http://localhost:1947/visitorsRegistration
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDk0NTEwOTUzMDgxNmMxMGQ0NmVmZDIiLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbjEyMyIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE2ODc0NTM0NjYsImV4cCI6MTY4NzQ1NzA2Nn0.BbMmxnmy6RZ3GB8dQrJWRnJ65lqoy-6m8hwtsQVJi9g
+
+{
+  "visitorInfo":{
+    "Identification No": "990609145783",
+    "Visitor Name": "ALIF HAIKAL",
+    "Gender": "MALE",
+    "Temperature": 36,
+    "Ethnicity": "MALAY",
+    "Date of Birth": "1999-06-09",
+    "Citizenship": "MALAYSIAN",
+    "Document Type": "IC",
+    "Expiry Date": "NONE",
+    "License Number": "59745419"
+  },
+  "visitorAddress":{
+    "Address": "DT2240, JALAN BUKIT TAMBUN PERDANA, TAMAN BUKIT TAMBUN PERDANA",
+    "Town": "DURIAN TUNGGAL",
+    "Postcode": 76100,
+    "State": "MELAKA",
+    "Country": "MALAYSIA"
+  },
+  "otherDetails":{
+    "Telephone Number": 60182765345,
+    "Vehicle Number": "VJY326",
+    "Vehicle Type": "MOTORCYCLE",
+    "Visitor Category": "GUEST",
+    "Company": "NONE",
+    "Pass Number": "NONE"
+  },
+  "visitDetails":{
+    "No of Visitors": 1,
+    "Purpose": "VISITING",
+    "Visit Limit Hours": 11,
+    "Visit Limit Minutes": 59,
+    "Host": "MUHAMAD SYAMAAIL",
+    "Location/Department": "B-1",
+    "Unit No": 26,
+    "Permit No": "NONE",
+    "Delivery Order": "NONE",
+    "Remarks": "NONE"
+  },
+  "addInfo":{
+    "Fever": false,
+    "Sore Throat": false,
+    "Dry Cough": false,
+    "Runny Nose": false,
+    "Shortness of Breath": false,
+    "Body Ache": false,
+    "Travelled Overseas Last (14 days)": false,
+    "Contact With Person With Covid-19": false,
+    "Recovered From Covid-19": false,
+    "Covid-19 Test Done": false
+  },
+  "blacklistStatus":{
+    "Blacklist": false,
+    "Blacklist Remarks": "NONE"
+  }
+}
+
+### Read Visitor Registration ###
+GET http://localhost:1947/visitorsRegistration
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+### Read Visitor Info ###
+GET http://localhost:1947/visitorsInfo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+### Read Visitor Address ###
+GET http://localhost:1947/visitorsAddress
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+### Read Other Details ###
+GET http://localhost:1947/otherDetails
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+### Read Visit Details ###
+GET http://localhost:1947/visitDetails
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+### Read Additional Info ###
+GET http://localhost:1947/addInfo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+### Read Blacklist Status ###
+GET http://localhost:1947/blacklistStatus
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+### Update Visitor Info ###
+PATCH http://localhost:1947/visitorsInfo/64a01d5179e2e92ba6eef752
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+{
+  "Identification No": "620909715621",
+  "Visitor Name": "ABU BAKAR",
+  "Gender": "MALE",
+  "Temperature": 36,
+  "Ethnicity": "MALAY",
+  "Date of Birth": "1962-09-09",
+  "Citizenship": "SINGAPOREAN",
+  "Document Type": "IC",
+  "Expiry Date": "NONE",
+  "License Number": "29749333"
+}
+
+### Update Visitor Address ###
+PATCH http://localhost:1947/visitorsAddress/64a01d5179e2e92ba6eef753
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+{
+  "Address": "EG47, JALAN DAMAI 12, TAMAN PRIMA UTAMA",
+  "Town": "KAJANG",
+  "Postcode": 43000,
+  "State": "SELANGOR",
+  "Country": "MALAYSIA"
+}
+
+### Update Other Details ###
+PATCH http://localhost:1947/otherDetails/64a01d5179e2e92ba6eef754
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+{
+  "Telephone Number": 60182765345,
+  "Vehicle Number": "VJY326",
+  "Vehicle Type": "CAR",
+  "Visitor Category": "GUEST",
+  "Company": "NONE",
+  "Pass Number": "NONE"
+}
+
+### Update Visit Details ###
+PATCH http://localhost:1947/visitDetails/64a01d5179e2e92ba6eef755
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+{
+  "No of Visitors": 1,
+  "Purpose": "VISITING",
+  "Visit Limit Hours": 11,
+  "Visit Limit Minutes": 59,
+  "Host": "MUHAMAD SYAMAAIL",
+  "Location/Department": "B-1",
+  "Unit No": 26,
+  "Permit No": "NONE",
+  "Delivery Order": "NONE",
+  "Remarks": "NONE"
+}
+
+### Update Additional Info ###
+PATCH http://localhost:1947/addInfo/64a01d5179e2e92ba6eef756
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+{
+  "Fever": false,
+  "Sore Throat": false,
+  "Dry Cough": false,
+  "Runny Nose": false,
+  "Shortness of Breath": false,
+  "Body Ache": false,
+  "Travelled Overseas Last (14 days)": false,
+  "Contact With Person With Covid-19": false,
+  "Recovered From Covid-19": false,
+  "Covid-19 Test Done": false
+}
+
+### Update Blacklist Status ###
+PATCH http://localhost:1947/blacklistStatus/64a01d5179e2e92ba6eef757
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk
+
+{
+  "Blacklist": false,
+  "Blacklist Remarks": "NONE"
+}
+
+### Delete Visitor Registration ###
+DELETE http://localhost:1947/visitorsRegistration/64a01d5179e2e92ba6eef758
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGEwMjA1OTc5ZTJlOTJiYTZlZWY3NTkiLCJ1c2VybmFtZSI6ImFsaWZoYWlrYWwiLCJwYXNzd29yZCI6Imtlcm9wb2tsZWtvciIsIm5hbWUiOiJBbGlmIEhhaWthbCIsImVtYWlsIjoiYjAyMjExMDE3NkBzdHVkZW50LnV0ZW0uY29tLm15IiwiaWF0IjoxNjg4MjE1ODg0LCJleHAiOjE2ODgyMTk0ODR9.HeJiGi0Hy8dWy4ynLAdkwGBDM2oRMMCohQX7skoNqCk

@@ -1,0 +1,439 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Apartment Visitor Management System"
+host: "localhost:1947"
+basePath: "/"
+schemes:
+  - "http"
+
+securityDefinitions:
+  BearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header
+
+tags:
+  - name: Admin
+    description: Operations for admin users
+  - name: Visitor
+    description: Operations for visitors
+  - name: User
+    description: Operations for users
+
+paths:
+  /login:
+    post:
+      tags:
+        - Admin
+      summary: "Authenticate admin user"
+      description: "Authenticate an admin user with username and password."
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/AdminLoginInput'
+      responses:
+        200:
+          description: "Successful login"
+          schema:
+            $ref: '#/definitions/LoginResponse'
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: '#/definitions/Error'
+  
+  /register:
+    post:
+      tags:
+        - Admin
+      summary: "Register a new admin"
+      description: "Register a new admin with username, password, name, and email."
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: adminData
+          required: true
+          schema:
+            $ref: "#/definitions/AdminRegistrationInput"
+      responses:
+        200:
+          description: "Registration successful"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Registration successful!"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Error"
+  
+  /user/register:
+    post:
+      tags:
+        - User
+      summary: "Register a new user"
+      description: "Register a new user with username, password, name, and email."
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: userData
+          required: true
+          schema:
+            $ref: "#/definitions/UserRegistrationInput"
+      responses:
+        200:
+          description: "User registration successful"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "User registration successful!"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Error"
+
+  /user/login:
+    post:
+      tags:
+        - User
+      summary: "User login"
+      description: "Authenticate a user with username and password."
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: userData
+          required: true
+          schema:
+            $ref: '#/definitions/UserLoginInput'
+      responses:
+        200:
+          description: "User login successful"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: '#/definitions/Error'
+
+  /visitorsRegistration:
+    post:
+      tags:
+        - Admin
+        - Visitor
+        - User
+      summary: "Register a new visitor"
+      description: "Register a new visitor with their details. Requires a valid admin JWT token."
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/VisitorsRegistrationInput"
+      responses:
+        200:
+          description: "Visitor registration successful"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: '#/definitions/Error'
+  
+  /visitorsRegistration/{visitorId}:
+    get:
+      tags:
+        - Admin
+      summary: "Get visitor information"
+      description: "Get information about a registered visitor. Requires a valid admin JWT token."
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: visitorId
+          in: query
+          description: "ID of the visitor to retrieve"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Visitor information retrieved successfully"
+        404:
+          description: "Visitor not found"
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: '#/definitions/Error'
+
+    patch:
+      tags:
+        - Admin
+      summary: "Update visitor information"
+      description: "Update information about a registered visitor. Requires a valid admin JWT token."
+      consumes:
+        - application/json
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: visitorId
+          in: path
+          description: "ID of the visitor to update"
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/VisitorsUpdateInput"
+      responses:
+        200:
+          description: "Visitor information updated successfully"
+        404:
+          description: "Visitor not found"
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: '#/definitions/Error'
+
+    delete:
+      tags:
+        - Admin
+      summary: "Delete visitor information"
+      description: "Delete information about a registered visitor. Requires a valid admin JWT token."
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: visitorId
+          in: path
+          description: "ID of the visitor to delete"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Visitor information deleted successfully"
+        404:
+          description: "Visitor not found"
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+  AdminLoginInput:
+    type: object
+    required:
+      - username
+      - password
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+
+  UserLoginInput:
+    type: object
+    required:
+      - username
+      - password
+    properties:
+      username:
+        type: string
+        example: "user123"
+      password:
+        type: string
+        example: "strongpassword"
+
+  LoginResponse:
+    type: object
+    properties:
+      token:
+        type: string
+
+  Error:
+    type: object
+    properties:
+      message:
+        type: string
+        example: "An error occurred"
+
+  # Definitions for Admin Registration, Visitor Registration, etc.
+  AdminRegistrationInput:
+    type: object
+    required:
+      - username
+      - password
+      - name
+      - email
+    properties:
+      username:
+        type: string
+        example: "adminUser"
+      password:
+        type: string
+        example: "strongpassword"
+      name:
+        type: string
+        example: "John Doe"
+      email:
+        type: string
+        format: email
+        example: "john.doe@example.com"
+
+  UserRegistrationInput:
+    type: object
+    required:
+      - username
+      - password
+      - name
+      - email
+    properties:
+      username:
+        type: string
+        example: "user123"
+      password:
+        type: string
+        example: "strongpassword"
+      name:
+        type: string
+        example: "Jane Doe"
+      email:
+        type: string
+        format: email
+        example: "jane.doe@example.com"
+
+  VisitorRegistrationInput:
+    type: object
+    properties:
+      visitorInfo:
+        $ref: '#/definitions/VisitorsInfoInput'
+      visitorAddress:
+        $ref: '#/definitions/VisitorsAddressInput'
+      otherDetails:
+        $ref: '#/definitions/OtherDetailsInput'
+      visitDetails:
+        $ref: '#/definitions/VisitDetailsInput'
+      addInfo:
+        $ref: '#/definitions/AddInfoInput'
+      blacklistStatus:
+        $ref: '#/definitions/BlacklistStatusInput'
+
+  VisitorInfoInput:
+    type: object
+    properties:
+      firstName:
+        type: string
+        example: "John"
+      lastName:
+        type: string
+        example: "Doe"
+      email:
+        type: string
+        format: email
+        example: "john.doe@example.com"
+      phoneNumber:
+        type: string
+
+  VisitorAddressInput:
+    type: object
+    properties:
+      streetAddress:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      postalCode:
+        type: string
+      country:
+        type: string
+
+  OtherDetailsInput:
+    type: object
+    properties:
+      telephoneNumber:
+        type: string
+      vehicleNumber:
+        type: string
+      vehicleType:
+        type: string
+      visitorCategory:
+        type: string
+      company:
+        type: string
+      passNumber:
+        type: string
+
+  VisitDetailsInput:
+    type: object
+    properties:
+      noOfVisitors:
+        type: integer
+      purpose:
+        type: string
+      visitLimitHours:
+        type: integer
+      visitLimitMinutes:
+        type: integer
+      host:
+        type: string
+      location:
+        type: string
+      unitNo:
+        type: integer
+      permitNo:
+        type: string
+      deliveryOrder:
+        type: string
+      remark:
+        type: string
+
+  AddInfoInput:
+    type: object
+    properties:
+      fever:
+        type: boolean
+
+  BlacklistStatusInput:
+    type: object
+    properties:
+      blacklist:
+        type: boolean
+      blacklistRemarks:
+        type: string
+
+  VisitorUpdateInput:
+    type: object
+    properties:
+      visitorInfo:
+        $ref: '#/definitions/VisitorsInfoInput'
+      visitorAddress:
+        $ref: '#/definitions/VisitorsAddressInput'
+      otherDetails:
+        $ref: '#/definitions/OtherDetailsInput'
+      visitDetails:
+        $ref: '#/definitions/VisitDetailsInput'
+      addInfo:
+        $ref: '#/definitions/AddInfoInput'
+      blacklistStatus:
+        $ref: '#/definitions/BlacklistStatusInput'
