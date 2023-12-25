@@ -2,9 +2,10 @@ const express = require('express');
 const YAML = require('yamljs')
 const cors = require('cors');
 const app = express();
-const port = 1947;
 const jwt = require('jsonwebtoken');
 const {MongoClient, ObjectId} = require('mongodb');
+const MongoURI = process.env.MongoDB
+const port = process.env.PORT || 1947;
 
 app.use(cors());
 
