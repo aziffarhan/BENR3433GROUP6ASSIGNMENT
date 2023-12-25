@@ -437,6 +437,3 @@ definitions:
         $ref: '#/definitions/AddInfoInput'
       blacklistStatus:
         $ref: '#/definitions/BlacklistStatusInput'
-
-scripts:
-  start: node test.js
